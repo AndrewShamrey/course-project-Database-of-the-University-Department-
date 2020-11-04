@@ -1,0 +1,61 @@
+:root {font-size: 16px;}
+  
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    font-family: Arial, sans-serif;
+}
+
+body::-webkit-scrollbar { width: 0; }
+
+
+h2 {
+    font-size: 28px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+p {
+    font-size: 20px;
+    margin: 10px 0;
+    word-break: break-all;
+    hyphens: auto;
+    text-align: justify;
+    text-indent: 40px;
+}
+
+.with_photo {
+    display: flex;
+    align-items: center;
+}
+
+.photo_div {
+    width: 30%;
+}
+
+.with_photo img {
+    width: 100%;
+}
+
+.text {
+    width: 70%;
+    padding: 0 15px;
+}
+
+.text p {
+    margin: 0;
+}
+
+.collage img {
+    width: 100%;
+}
