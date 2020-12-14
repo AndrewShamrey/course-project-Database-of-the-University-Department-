@@ -21,10 +21,11 @@ body::-webkit-scrollbar { width: 0; }
 h2 {
     font-size: 28px;
     text-align: center;
-    padding-top: 10px;
+    margin-top: 10px;
 }
 
 details {
+    position: relative;
     display: block;
     width: 100%;
     margin: 10px auto;
@@ -161,4 +162,471 @@ a {
 p i {
     margin-right: 15px;
     transform: scale(1.4);
+}
+
+.all_prepods_data, 
+.course_of_id,
+.role_from_db {
+    position: absolute;
+    font-size: 2px;
+    transform: scale(0.05);
+    visibility: hidden;
+}
+
+form.id_to_show_page,
+form.delete_person,
+form.change_admin_data {
+    height: 0;
+    position: absolute;
+    visibility: hidden;
+}
+
+.show_more_p {
+    width: 300px;
+    margin: 8px auto 0;
+    padding: 4px 5px;
+    border-radius: 12px;
+    background-color: #8e8e8e;
+    text-align: center;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 20px;
+    color: #f0f0f0;
+    letter-spacing: 0.06em;
+    transition: all .4s ease;
+}
+
+.show_more_p:hover {
+    cursor: pointer;
+    background-color: #24292e;
+    transform: scaleX(1.1);
+}
+
+.delete_admin_btn,
+.change_admin_btn,
+.add_person_btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.delete_admin_btn span,
+.change_admin_btn span,
+.add_person_btn span {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.add_person_btn {
+    top: 10px;
+    right: 200px;
+    background: #07910c;
+}
+
+.add_person_btn:hover {
+    background: #1beb21;
+}
+
+.change_admin_btn {
+    top: 10px;
+    right: 75px;
+    background: #0c2687;
+}
+
+.change_admin_btn:hover {
+    background: #093fff;
+}
+
+.delete_admin_btn {
+    top: 10px;
+    right: 25px;
+    background: #932121;
+}
+
+.delete_admin_btn:hover {
+    background: #f71212;
+}
+
+.check_admin_btn {
+    background: #07910c;
+}
+
+.check_admin_btn:hover {
+    background: #1beb21;
+}
+
+.content_editable_span {
+    text-decoration: underline;
+    border: 1px solid #b36f6f;
+    border-radius: 5px;
+}
+
+
+.modal {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.secret_window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin: 20px auto;
+    background: #FFF9F3;
+    border-radius: 30px;
+    border: 2px solid #24292e;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 0 13px 15px;
+    transform: scale(0.8);
+}
+
+.secret_window h3 {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    height: 34px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 32px;
+    color: #24292e;
+}
+
+.close_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 20px;
+    left: 370px;
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.3s;
+    cursor: pointer;
+}  
+
+.close_btn span {
+    width: 100%;
+    height: 100%;
+    font-size: 22px;
+    line-height: 30px;
+}
+  
+.close_btn:hover {
+    transform: scale(1.1);
+}  
+
+.secret_window form {
+    width: 95%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    color: #24292e;
+}
+
+.selects_data,
+.secret_window .secret_data,
+.secret_window .job_data,
+.secret_window .personal_data,
+.secret_window .fio {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin: 10px auto;
+}
+
+input[name=login], input[name=pass],
+input[name=position_name], input[name=ac_degree],
+input[name=location], input[name=phone], input[name=email],
+input[name=last_name], input[name=first_name], input[name=fathers_name] {
+    width: 30%;
+    padding: 3px 9px 5px;
+    margin: 5px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #fff;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000;
+    border: 1px solid #fff;
+    outline: none;
+}
+
+input[name=login], input[name=pass],
+input[name=position_name], input[name=ac_degree] {
+    width: 45%;
+}
+
+input[name=position_name]:focus, input[name=ac_degree]:focus,
+input[name=location]:focus, input[name=phone]:focus, input[name=email]:focus,
+input[name=last_name]:focus, input[name=first_name]:focus, input[name=fathers_name]:focus,
+.secret_window textarea[name=science_direction]:focus,
+.secret_window textarea[name=timetable_data]:focus,
+.courses_container textarea:focus {
+    border: 1px solid #24292e;
+}
+
+.secret_window textarea[name=timetable_data],
+.secret_window textarea[name=science_direction] {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    height: 120px;
+    width: 90%;
+    margin: auto;
+    padding: 13px 15px 11px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #fff;
+    resize: none;
+    outline: none;
+}  
+
+.secret_window form button {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 40px;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #f0f0f0;
+    text-align: center;
+    background-color: #8e8e8e;
+    transition: all .4s ease;
+    user-select: none; 
+    outline: none;
+    border: none;
+}  
+
+.secret_window form button:hover {
+    cursor: pointer;
+    background-color: #24292e;
+    transform: scaleX(1.1);
+}
+
+.select_data {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.role_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    width: 250px;
+}
+
+.role_container select {
+    padding: 3px 9px 5px;
+    margin: 5px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #fff;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000;
+}
+
+.select_courses {
+    width: 400px;
+    height: 80px;
+    padding-top: 15px;
+    padding-left: 15px;
+    overflow: scroll;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid #fff;
+    -ms-overflow-style: none;
+}
+.select_courses::-webkit-scrollbar { width: 0; }
+
+.courses_container textarea {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    height: 40px;
+    width: 260px;
+    margin: 10px auto 0;
+    padding: 5px 7px 4px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #fff;
+    resize: none;
+    outline: none;
+}
+
+
+.pass_area_for_admin {
+    display: none;
+    height: 0;
+    
+    justify-content: center;
+    text-decoration: none;
+    width: 400px;
+    margin: 10px auto;
+    padding: 7px 10px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    color: #000;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #24292e;
+    resize: none;
+    outline: none;
+}
+
+
+
+@media (max-width: 950px), (device-width: 950px) {
+    .show_more_p {width: 160px; font-size: 16px; line-height: 14px; letter-spacing: 0.04em; margin: 6px auto 0; border-radius: 20px;}
+}
+
+@media (max-width: 820px), (device-width: 820px) {
+    .secret_window {width: 100%;}
+    .secret_window h3 {height: 28px; font-size: 26px; line-height: 27px;}
+    .role_container {width: 35%; margin-right: 5px;}
+    .courses_container {width: 65%; margin-left: 5px;}
+    .select_courses {width: 100%;}
+}
+
+@media (max-width: 770px), (device-width: 770px) {
+    .close_btn {left: 250px;}
+}
+
+@media (max-width: 750px), (device-width: 750px) {
+    .add_person_btn {right: 100px;}
+}
+
+@media (max-width: 700px), (device-width: 700px) {
+    details summary p:first-child {font-size: 22px; letter-spacing: 0.04em;}
+    details summary p:last-child {font-size: 16px;}
+    .all_info {padding: 15px;}
+    .all_info img {margin-right: 30px;}
+    .right_info {font-size: 16px; line-height: 14px;}
+    .right_info p {margin-top: 6px;}
+    .right_info hr {margin: 10px auto;}
+
+    input[name=login], input[name=pass],
+    input[name=position_name], input[name=ac_degree],
+    input[name=location], input[name=phone], input[name=email],
+    input[name=last_name], input[name=first_name], input[name=fathers_name] {
+        padding: 2px 6px 3px; margin: 3px; border-radius: 4px; font-size: 16px;  line-height: 18px;
+    }
+
+    .secret_window textarea[name=timetable_data],
+    .secret_window textarea[name=science_direction] {
+        height: 100px; padding: 7px 9px 5px; border-radius: 15px; font-size: 16px;  line-height: 18px;
+    }
+
+    .secret_window form {font-size: 16px; line-height: 18px;}
+    .secret_window form button {width: 170px; height: 35px; margin: 8px auto; padding: 8px 12px; border-radius: 12px; font-size: 16px; line-height: 18px;}
+    .role_container select {padding: 2px 6px 3px; margin: 3px; border-radius: 4px; font-size: 16px; line-height: 18px;}
+    .select_courses {height: 65px; padding-top: 10px; padding-left: 10px; font-size: 16px; line-height: 18px; border-radius: 15px;}
+    .courses_container textarea {height: 35px; width: 240px; margin: 8px auto 0; padding: 3px 5px 2px; font-size: 16px; line-height: 18px; border-radius: 4px;}
+    .pass_area_for_admin {width: 340px; margin: 8px auto; padding: 4px 7px; font-size: 14px; line-height: 16px; border-radius: 6px;}
+}
+
+@media (max-width: 550px), (device-width: 550px) {
+    .delete_admin_btn span, .change_admin_btn span, .add_person_btn span {width: 15px; height: 15px; font-size: 15px;}
+    .add_person_btn {top: 12px; right: 35px;}
+    .delete_admin_btn {top: 18px; right: 10px;}
+    .change_admin_btn {top: 18px; right: 45px;}
+
+    .close_btn {left: 180px;}
+}
+
+@media (max-width: 500px), (device-width: 500px) {
+    :root {font-size: 14px;}
+    h2 {font-size: 20px; margin-top: 10px;}
+    h3 {font-size: 22px; margin-top: 20px;}
+    p.locations {margin: 8px 0; font-size: 16px; line-height: 18px;}
+    .contacts {margin: 20px; height: 110px;}
+    a {font-size: 16px; line-height: 18px; height: 30px;}
+}
+
+@media (max-width: 450px), (device-width: 450px) {
+    .secret_window h3 {height: 22px; font-size: 22px; line-height: 23px;}
+    .close_btn {left: 165px; top: 15px; width: 20px; height: 20px;}
+    .close_btn span {font-size: 16px; line-height: 20px;}
+
+    input[name=login], input[name=pass],
+    input[name=position_name], input[name=ac_degree],
+    input[name=location], input[name=phone], input[name=email],
+    input[name=last_name], input[name=first_name], input[name=fathers_name],
+    .role_container select {
+        padding: 2px 4px 3px; font-size: 12px;  line-height: 14px;
+    }
+
+    .secret_window textarea[name=timetable_data],
+    .secret_window textarea[name=science_direction] {
+        height: 80px; padding: 5px 7px 3px; border-radius: 10px; font-size: 12px;  line-height: 14px;
+    }
+
+    .secret_window form {font-size: 12px; line-height: 14px;}
+    .secret_window form button {width: 150px; height: 30px; margin: 6px auto; padding: 6px 9px; border-radius: 8px; font-size: 12px; line-height: 14px;}
+    .select_courses {height: 60px; font-size: 12px; line-height: 14px; border-radius: 10px;}
+    .courses_container textarea {height: 30px; width: 180px; margin: 6px auto 0; padding: 2px 3px 2px; font-size: 12px; line-height: 14px;}
+    .pass_area_for_admin {width: 250px; margin: 6px auto; padding: 2px 4px; font-size: 10px; line-height: 12px; border-radius: 4px;}
+}
+
+@media (max-width: 400px), (device-width: 400px) {
+    details summary p:first-child {font-size: 18px; letter-spacing: 0.02em;}
+    details summary p:last-child {font-size: 14px;}
+    .right_info {font-size: 14px; line-height: 12px;}
+    .delete_admin_btn span, .change_admin_btn span, .add_person_btn span {width: 10px; height: 10px; font-size: 10px;}
+    .add_person_btn {right: 20px;}
+
+    .close_btn {left: 150px;}
+}
+
+@media (max-width: 340px), (device-width: 340px) {
+    .close_btn {left: 130px;}
 }

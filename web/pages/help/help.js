@@ -1,39 +1,39 @@
+let adminData = document.querySelector('.admin_data').textContent.split(';;');
+document.querySelector('.admin_data').remove();
+
 function adminFromDB() {
-    let details = document.createElement("details"); 
-    details.open = true;
-    let summary = document.createElement("summary"); 
-    let all_info = document.createElement("div"); 
-    all_info.classList.add("all_info");
-    let first_p = document.createElement("p"); 
-    first_p.textContent = `Павлов Павел Павлович`;
-    let second_p = document.createElement("p"); 
-    second_p.innerHTML = `<span>Администратор</span>, <span>техник-технолог</span>`;
-    summary.appendChild(first_p);
-    summary.appendChild(second_p);
-    details.appendChild(summary);
-    let image = document.createElement("img");
-    image.src = "../../assets/icons/user_default_ico_inhead.jpg";
-    image.alt = "admin";
-    let right_info = document.createElement("div"); 
-    right_info.classList.add("right_info");
-    all_info.appendChild(image);
-    all_info.appendChild(right_info);
-    let first_info_p = document.createElement("p");
-    first_info_p.innerHTML = `<span>Аудитория: </span><span>410-1</span>`;
-    let second_info_p = document.createElement("p");
-    second_info_p.innerHTML = `<span>Телефон: </span><span>+375123456789</span>`;
-    let third_info_p = document.createElement("p");
-    third_info_p.innerHTML = `<span>E-mail: </span><span>ivanovivan@gmail.com</span>`;
-    right_info.appendChild(first_info_p);
-    right_info.appendChild(second_info_p);
-    right_info.appendChild(third_info_p);
-    details.appendChild(all_info);
-    document.querySelector("div.admin").appendChild(details);
+  let details = document.createElement("details"); 
+  details.open = true;
+  let summary = document.createElement("summary"); 
+  let all_info = document.createElement("div"); 
+  all_info.classList.add("all_info");
+  let first_p = document.createElement("p"); 
+  first_p.textContent = `${adminData[1]} ${adminData[2]} ${adminData[3]}`;
+  let second_p = document.createElement("p"); 
+  second_p.innerHTML = `<span>${adminData[7]}</span>, <span>${adminData[8]}</span>`;
+  summary.appendChild(first_p);
+  summary.appendChild(second_p);
+  details.appendChild(summary);
+  let image = document.createElement("img");
+  image.src = `../../assets/images/photos/${adminData[0]}.jpg`;
+  image.alt = "admin";
+  let right_info = document.createElement("div"); 
+  right_info.classList.add("right_info");
+  all_info.appendChild(image);
+  all_info.appendChild(right_info);
+  let first_info_p = document.createElement("p");
+  first_info_p.innerHTML = `<span>Аудитория: </span><span>${adminData[4]}</span>`;
+  let second_info_p = document.createElement("p");
+  second_info_p.innerHTML = `<span>Телефон: </span><span>${adminData[5]}</span>`;
+  let third_info_p = document.createElement("p");
+  third_info_p.innerHTML = `<span>E-mail: </span><span>${adminData[6]}</span>`;
+  right_info.appendChild(first_info_p);
+  right_info.appendChild(second_info_p);
+  right_info.appendChild(third_info_p);
+  details.appendChild(all_info);
+  document.querySelector("div.admin").appendChild(details);
 }
-
 adminFromDB();
-
-
 
 
 const questions = [
@@ -90,5 +90,4 @@ function FillQuestions() {
         document.querySelector("div.questions").appendChild(details);
     }
 }
-
 FillQuestions();

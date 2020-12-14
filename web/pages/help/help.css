@@ -21,7 +21,7 @@ body::-webkit-scrollbar { width: 0; }
 h2 {
     font-size: 28px;
     text-align: center;
-    padding-top: 10px;
+    margin-top: 10px;
 }
 
 details {
@@ -116,4 +116,27 @@ details summary p:last-child {
     border-bottom: 2px rgba(142, 142, 142) solid;
     border-left: 2px rgba(142, 142, 142) solid;
     border-right: 2px rgba(142, 142, 142) solid;
+}
+
+.admin_data {
+    position: absolute;
+    font-size: 2px;
+    transform: scale(0.05);
+    visibility: hidden;
+}
+
+@media (max-width: 600px), (device-width: 600px) {
+    h2 {font-size: 20px; margin-top: 10px;}
+}
+
+@media (max-width: 550px), (device-width: 550px) {
+    :root {font-size: 14px;}
+  
+    details summary p:first-child {font-size: 22px; letter-spacing: 0.04em;}
+    details summary p:last-child {font-size: 16px;}
+    .all_info {padding: 10px; min-height: 200px; font-size: 16px; line-height: 14px;}
+
+    .all_info img {margin-right: 30px;}
+    .right_info {font-size: 16px; line-height: 14px;}
+    .right_info p {margin-top: 6px;}
 }

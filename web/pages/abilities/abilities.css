@@ -22,4 +22,30 @@ h2 {
     font-size: 28px;
     text-align: center;
     padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-indent: 30px; 
+    text-align: justify;
+}
+
+.img_container {
+    width: 90%;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: -1px 5px 20px -12px black;
+}
+
+img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px), (device-width: 600px) {
+    h2 {font-size: 20px; margin-top: 10px;}
+}
+
+@media (max-width: 550px), (device-width: 550px) {
+    :root {font-size: 14px;}
 }
