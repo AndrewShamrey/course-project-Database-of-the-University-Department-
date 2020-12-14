@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Кафедра</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+    <div class="authorization">
+        <form class="auth-form">
+            <p class="login-title">Войдите чтобы продолжить</p>
+            <div class="login-space">
+                <input type="text" name="email" placeholder="Логин" required>
+            </div>
+            <div class="pass-space">
+                <input type="password" name="pass" placeholder="Пароль" required>
+            </div>
+            <button class="auth-btn" type="button">Старт</button>
+            <p class="forgot">Забыли пароль? <a class="call_admin" href="tel:+375123456789">Связаться с администратором</a></p>
+        </form>    
+    </div>
+    
+    <script>
+        document.querySelector('.auth-btn').addEventListener('click', () => {
+            window.location.href='../main/index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema test_with_inc
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema test_with_inc
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `test_with_inc` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema my_project
+-- -----------------------------------------------------
+USE `test_with_inc` ;
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`prepods`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`prepods` (
+  `user_id` INT NOT NULL,
+  `last_name` VARCHAR(45) NULL,
+  `first_name` VARCHAR(45) NULL,
+  `fathers_name` VARCHAR(50) NULL,
+  `location` VARCHAR(10) NULL,
+  `phone` VARCHAR(30) NULL,
+  `email` VARCHAR(50) NULL,
+  PRIMARY KEY (`user_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`authorization`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`authorization` (
+  `auth_id` INT NOT NULL,
+  `login` VARCHAR(45) NULL,
+  `pass` CHAR(32) NULL,
+  `role_id` TINYINT NOT NULL,
+  PRIMARY KEY (`auth_id`),
+  CONSTRAINT `auth_id`
+    FOREIGN KEY (`auth_id`)
+    REFERENCES `test_with_inc`.`prepods` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`consultation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`consultation` (
+  `consult_id` INT NOT NULL,
+  `user_text_consult` TEXT NULL,
+  PRIMARY KEY (`consult_id`),
+  UNIQUE INDEX `user_id_UNIQUE` (`consult_id` ASC) VISIBLE,
+  CONSTRAINT `consult_id`
+    FOREIGN KEY (`consult_id`)
+    REFERENCES `test_with_inc`.`prepods` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`subjects`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`subjects` (
+  `subject_name_id` INT NOT NULL,
+  `subject_name` TEXT NULL,
+  PRIMARY KEY (`subject_name_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`courses`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`courses` (
+  `user_subj_id` INT NOT NULL,
+  `for_user_id` INT NOT NULL,
+  `subject_of_course_id` INT NOT NULL,
+  PRIMARY KEY (`user_subj_id`),
+  INDEX `subject_of_course_id_idx` (`subject_of_course_id` ASC) VISIBLE,
+  INDEX `for_user_id_idx` (`for_user_id` ASC) VISIBLE,
+  CONSTRAINT `for_user_id`
+    FOREIGN KEY (`for_user_id`)
+    REFERENCES `test_with_inc`.`prepods` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `subject_of_course_id`
+    FOREIGN KEY (`subject_of_course_id`)
+    REFERENCES `test_with_inc`.`subjects` (`subject_name_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`groups_stud`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`groups_stud` (
+  `group_stud_id` INT NOT NULL,
+  `group_name_id` INT NULL,
+  `speciality_name` TEXT NULL,
+  PRIMARY KEY (`group_stud_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`prepods_job`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`prepods_job` (
+  `job_id` INT NOT NULL,
+  `position_name` VARCHAR(45) NULL,
+  `ac_degree` TEXT NULL,
+  `science_direction` TEXT NULL,
+  PRIMARY KEY (`job_id`),
+  UNIQUE INDEX `user_id_UNIQUE` (`job_id` ASC) VISIBLE,
+  CONSTRAINT `job_id`
+    FOREIGN KEY (`job_id`)
+    REFERENCES `test_with_inc`.`prepods` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `test_with_inc`.`timetable`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `test_with_inc`.`timetable` (
+  `table_id` INT NOT NULL,
+  `for_prepod` INT NOT NULL,
+  `subject_id` INT NOT NULL,
+  `subject_start` INT NULL,
+  `subject_day` INT NULL,
+  `subject_location` VARCHAR(10) NULL,
+  `group_number` INT NOT NULL,
+  PRIMARY KEY (`table_id`),
+  INDEX `subject_id_idx` (`subject_id` ASC) VISIBLE,
+  INDEX `for_prepod_idx` (`for_prepod` ASC) VISIBLE,
+  INDEX `group_number_idx` (`group_number` ASC) VISIBLE,
+  CONSTRAINT `for_prepod`
+    FOREIGN KEY (`for_prepod`)
+    REFERENCES `test_with_inc`.`prepods` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `group_number`
+    FOREIGN KEY (`group_number`)
+    REFERENCES `test_with_inc`.`groups_stud` (`group_stud_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `subject_id`
+    FOREIGN KEY (`subject_id`)
+    REFERENCES `test_with_inc`.`subjects` (`subject_name_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
