@@ -1,0 +1,238 @@
+:root {font-size: 16px;}
+  
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    font-family: Arial, sans-serif;
+}
+
+body::-webkit-scrollbar { width: 0; }
+
+
+.consultations_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.consultations_container form {
+    width: 100%;
+    margin: 10px 0 0;
+    border-radius: 15px;
+}
+
+h3 {
+    font-size: 24px;
+    text-align: center;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+
+.consultations {
+    text-decoration: none;
+    height: 160px;
+    width: 100%;
+    padding: 15px 17px 11px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    color: #24292e;
+    border-radius: 15px;
+    background: #FFF9F3;
+    border: 1px solid #FFF9F3;;
+    outline: none;
+}
+
+.timetable_container {
+    width: 95%;
+    margin: auto;
+}
+
+.table_container {
+    overflow-x: auto;
+    width: 100%;
+    margin: 10px 0 15px;
+    box-shadow: -1px 5px 20px -12px black;
+    -ms-overflow-style: none;
+}
+.table_container::-webkit-scrollbar {width: 0;}
+
+.table_container table {
+    position: relative;
+    width: 100%;
+    background: #c7fbff30;
+    font-size: 14px;
+    border-collapse: collapse;
+    user-select: none;
+}
+
+.table_container th {
+    position: sticky;
+    min-width: 115px;
+    top: 0;
+    padding: 2px 3px;
+    background: #24292e;
+    color: #FFF9F3;
+    text-shadow: 1px 1px 2px #464354;
+    cursor: pointer;
+}
+
+.table_container th:first-child {
+    min-width: 60px;
+}
+
+.table_container td {
+    padding: 12px 2px 0;
+    max-width: 115px;
+    min-width: 115px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+}
+.table_container td::-webkit-scrollbar {width: 0;}
+
+.table_container tr td:first-child {
+    border-right: 2px solid #24292e;
+    min-width: 55px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 12px;
+    color: #24292e;
+    padding: 2px 4px -6px;
+}
+
+.table_container tr {
+    text-align: center;
+    line-height: 20px;
+    color: #3D3D3D;
+    text-transform: capitalize;
+}
+
+tr:nth-child(even) {
+    background: #434a5123;
+}
+
+tr:nth-child(odd) {
+    background: none;
+}
+
+.consult_data, .subj_to_table, .all_prepods_data {
+    position: absolute;
+    font-size: 2px;
+    transform: scale(0.05);
+    visibility: hidden;
+}
+
+.active_day {
+    background: #807f8732;
+}
+
+
+
+
+.person_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.all_info {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    min-height: 200px;
+}
+
+.all_info img {
+    width: 30%;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+.right_info {
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.right_info p {
+    margin-top: 8px;
+}
+
+.right_info p span:first-child {
+    font-weight: 600;
+}
+
+.right_info hr {
+    width: 90%;
+    height: 2px;
+    margin: 15px auto;
+    color: #24292e;
+    background-color:#24292e;
+    border:0px none;
+}
+
+.prepod_name {
+    font-size: 28px;
+    line-height: 30px;
+    letter-spacing: 0.06em;
+}
+
+.second_p {
+    margin-bottom: 15px;
+}
+
+span.default {
+    font-weight: 400 !important;
+}
+
+
+@media (max-width: 950px), (device-width: 950px) {
+    .consultations_container {width: 95%};   
+}
+
+@media (max-width: 700px), (device-width: 700px) {
+    h3 {font-size: 20px; margin-top: 10px;}
+    .consultations {height: 120px; padding: 10px 13px 7px; font-size: 14px; line-height: 16px; border-radius: 12px;}
+    .table_container table {font-size: 12px;}
+    .table_container th {min-width: 95px;}
+    .table_container th:first-child {min-width: 50px;}
+    .table_container td {min-width: 95px; max-width: 95px;}
+    .table_container tr td:first-child {min-width: 50px;}
+    .table_container tr {line-height: 16px;}
+
+    .person_container {width: 95%}
+    .all_info {padding: 10px}
+    .all_info img {margin-right: 30px;}
+    .right_info {font-size: 16px; line-height: 14px;}
+    .right_info p {margin-top: 6px;}
+    .right_info hr {margin: 10px auto;}
+    .prepod_name {font-size: 24px; line-height: 26px; letter-spacing: 0.04em;}
+    .second_p {margin-bottom: 10px;}
+}
+
+@media (max-width: 460px), (device-width: 460px) {
+    .consultations {height: 100px; padding: 8px 10px 5px; font-size: 12px; line-height: 13px; border-radius: 8px;}
+}
+
+@media (max-width: 460px), (device-width: 460px) {
+    .right_info {font-size: 14px; line-height: 12px;}
+    .prepod_name {font-size: 20px; line-height: 22px; letter-spacing: 0.03em;}
+    .second_p {margin-bottom: 8px;}   
+}
